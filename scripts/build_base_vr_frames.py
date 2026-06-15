@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # Build base-vs-VideoReward frame-strip demo (0/40/80/120, time-normalized).
-# One composite PNG per (backbone, dyn): top row Base, bottom row VideoReward,
+# One composite per (backbone, dyn): top row Base, bottom row VideoReward,
 # 4 frames sampled at equal time points (start / 1/3 / 2/3 / end).
+# Frames are pasted at NATIVE resolution (no downscale) and saved as JPEG q92,
+# so the strips stay sharp.
 import json, os, glob, html, shutil, subprocess
 from PIL import Image, ImageDraw, ImageFont
 
@@ -18,19 +20,13 @@ BACKBONES = [
 ]
 VARIANTS = [("base", "Base"), ("vr", "VideoReward")]   # suffix, label
 FRACS = [0.0, 1.0/3.0, 2.0/3.0, 1.0]                   # equal time points
-
 FONT_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-f_hdr = ImageFont.truetype(FONT_B, 18)
-f_lbl = ImageFont.truetype(FONT_B, 19)
+JPEG_Q = 92
 
-# geometry
-TW    = 200          # frame thumb width
-GAPF  = 4            # gap between frames
-LBL   = 150          # left label gutter
-LBLGAP= 8            # gap label->first frame
-HDR   = 30           # top frame-index header
-GAPR  = 8            # gap between the two variant rows
-EDGE  = 10
+# reference geometry defined at a 200px frame width; scaled to native width so
+# proportions stay identical while pixels stay native-sharp.
+TW_REF = 200
+G0 = dict(GAPF=4, LBL=150, LBLGAP=8, HDR=30, GAPR=8, EDGE=10, FH=18, FL=19)
 
 def nframes(path):
     out = subprocess.run(["ffprobe", "-v", "error", "-count_frames",
@@ -69,13 +65,20 @@ def load_prompt(key, bdir, dyn, pj):
         p = os.path.join(PDIR, bdir, dyn + ".txt")
         return open(p).read().strip() if os.path.exists(p) else ""
 
-def build_strip(bdir, dyn, th, out_png):
-    frames_w = 4 * TW + 3 * GAPF
-    GW = EDGE + LBL + LBLGAP + frames_w + EDGE
-    GH = EDGE + HDR + 2 * th + GAPR + EDGE
+def geom_for(w):
+    s = w / float(TW_REF)
+    return {k: max(1, int(round(v * s))) for k, v in G0.items()}
+
+def build_strip(bdir, dyn, w, h, g, out_jpg):
+    TW, TH = w, h
+    f_hdr = ImageFont.truetype(FONT_B, g["FH"])
+    f_lbl = ImageFont.truetype(FONT_B, g["FL"])
+    frames_w = 4 * TW + 3 * g["GAPF"]
+    GW = g["EDGE"] + g["LBL"] + g["LBLGAP"] + frames_w + g["EDGE"]
+    GH = g["EDGE"] + g["HDR"] + 2 * TH + g["GAPR"] + g["EDGE"]
     canvas = Image.new("RGB", (GW, GH), (255, 255, 255))
     draw = ImageDraw.Draw(canvas)
-    frames_x0 = EDGE + LBL + LBLGAP
+    frames_x0 = g["EDGE"] + g["LBL"] + g["LBLGAP"]
     header_idx = None
     for r, (suf, vlabel) in enumerate(VARIANTS):
         vid = os.path.join(ROOT, bdir, "{}_{}.mp4".format(dyn, suf))
@@ -83,17 +86,19 @@ def build_strip(bdir, dyn, th, out_png):
         if header_idx is None:
             header_idx = ind
             for c, fi in enumerate(ind):
-                cx = frames_x0 + c * (TW + GAPF) + TW / 2
-                ctext(draw, cx, EDGE + HDR / 2, "frame {}".format(fi), f_hdr)
+                cx = frames_x0 + c * (TW + g["GAPF"]) + TW / 2
+                ctext(draw, cx, g["EDGE"] + g["HDR"] / 2, "frame {}".format(fi), f_hdr)
         tmp = "/tmp/bvf_{}_{}_{}".format(bdir, dyn, suf)
         pngs = extract(vid, ind, tmp)
-        y = EDGE + HDR + r * (th + GAPR)
-        ctext(draw, EDGE + LBL / 2, y + th / 2, vlabel, f_lbl)
+        y = g["EDGE"] + g["HDR"] + r * (TH + g["GAPR"])
+        ctext(draw, g["EDGE"] + g["LBL"] / 2, y + TH / 2, vlabel, f_lbl)
         for c, p in enumerate(pngs):
-            im = Image.open(p).convert("RGB").resize((TW, th), Image.LANCZOS)
-            canvas.paste(im, (int(frames_x0 + c * (TW + GAPF)), int(y)))
+            im = Image.open(p).convert("RGB")
+            if im.size != (TW, TH):                       # paste native; resize only if mismatch
+                im = im.resize((TW, TH), Image.LANCZOS)
+            canvas.paste(im, (int(frames_x0 + c * (TW + g["GAPF"])), int(y)))
         shutil.rmtree(tmp)
-    canvas.save(out_png)
+    canvas.save(out_jpg, quality=JPEG_Q, optimize=True, progressive=True)
     return GW, GH, header_idx
 
 # ---- main ----
@@ -102,21 +107,21 @@ if os.path.exists(OUTDIR):
 os.makedirs(OUTDIR)
 pj = json.load(open(os.path.join(ROOT, "propmt", "prompts.json")))
 
-sections = []   # (key, friendly, [ (dyn, prompt, png_name) ])
+sections = []   # (key, friendly, [ (dyn, prompt, jpg_name) ])
 for key, bdir, friendly in BACKBONES:
     bases = sorted(glob.glob(os.path.join(ROOT, bdir, "dyn_*_base.mp4")))
     dyns = [os.path.basename(b)[:-len("_base.mp4")] for b in bases]
     w, h = dims(os.path.join(ROOT, bdir, dyns[0] + "_base.mp4"))
-    th = int(round(TW * h / w))
+    g = geom_for(w)
     items = []
     for dyn in dyns:
-        png_name = "{}__{}.png".format(key, dyn)
-        gw, gh, hi = build_strip(bdir, dyn, th, os.path.join(OUTDIR, png_name))
+        jpg_name = "{}__{}.jpg".format(key, dyn)
+        gw, gh, hi = build_strip(bdir, dyn, w, h, g, os.path.join(OUTDIR, jpg_name))
         prompt = load_prompt(key, bdir, dyn, pj)
-        items.append((dyn, prompt, png_name))
+        items.append((dyn, prompt, jpg_name))
         print("  {:<14} {} {}x{} frames={}".format(bdir, dyn, gw, gh, hi))
     sections.append((key, friendly, items))
-    print("== {} ({}): {} prompts ==".format(friendly, bdir, len(items)))
+    print("== {} ({}): {} prompts, native {}x{} ==".format(friendly, bdir, len(items), w, h))
 
 # ---------- index.html ----------
 HEAD = """<!doctype html>
@@ -154,7 +159,7 @@ HEAD = """<!doctype html>
 <div class="note">Each composite: <b>top row = Base</b>, <b>bottom row = VideoReward</b>. Four frames are sampled at
 equal time points (start / &frac13; / &frac23; / end). For the 24-fps clips (LTX-Video, HunyuanVideo) these are frames
 <b>0 / 40 / 80 / 120</b>; the 8-fps CogVideoX clips have 41 frames, so the same time points map to frames 0 / 13 / 27 / 40.
-The exact frame index is printed above each column.</div>
+The exact frame index is printed above each column. Frames are shown at native resolution.</div>
 __TOC__
 """
 
@@ -163,7 +168,7 @@ SEC = """<h2 id="__KEY__">__FRIENDLY__ <span class="sub">&middot; __N__ prompts<
 ITEM = """<section class="item">
   <div class="row-id">__RID__</div>
   <div class="prompt">__PROMPT__</div>
-  <img class="strip" src="frames/__PNG__" alt="__RID__ frame strip" loading="lazy">
+  <img class="strip" src="frames/__IMG__" alt="__RID__ frame strip" loading="lazy">
 </section>
 """
 
@@ -172,11 +177,11 @@ toc = '<div class="toc"><b>Backbones:</b> ' + " ".join(
 body = HEAD.replace("__TOC__", toc)
 for key, friendly, items in sections:
     body += SEC.replace("__KEY__", key).replace("__FRIENDLY__", html.escape(friendly)).replace("__N__", str(len(items)))
-    for dyn, prompt, png in items:
+    for dyn, prompt, img in items:
         rid = "{} &middot; {}".format(friendly, dyn)
         body += (ITEM.replace("__RID__", rid)
                      .replace("__PROMPT__", html.escape(prompt))
-                     .replace("__PNG__", png))
+                     .replace("__IMG__", img))
 body += "\n</body>\n</html>\n"
 
 with open(os.path.join(WORK, "index.html"), "w") as fh:

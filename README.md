@@ -20,7 +20,7 @@ Each composite (one per prompt) has:
 | path | what |
 |---|---|
 | `index.html` | the demo page (grouped by backbone) |
-| `frames/<key>__dyn_NNN.png` | baked composite strips (`key` = `cog` / `ltx` / `hy`) |
+| `frames/<key>__dyn_NNN.jpg` | baked composite strips, native resolution, JPEG q92 (`key` = `cog` / `ltx` / `hy`) |
 | `scripts/build_base_vr_frames.py` | generator (ffmpeg frame extraction + Pillow compositing) |
 
 38 prompts total: CogVideoX 14 (seed 5), LTX-Video 18 (seed 3), HunyuanVideo 6 (seed 42).
@@ -33,5 +33,6 @@ Run on the box that holds the source videos (`/data_2/xujinyuan/vbench_check/bas
 /data/xujingyuan/envs/verl/bin/python scripts/build_base_vr_frames.py
 ```
 
-This rewrites `frames/` and `index.html`. The repo is ~31 MB (well under the GitHub Pages 1 GB
-limit), so everything lives on `main` and is served directly by Pages — no jsDelivr / assets branch needed.
+This rewrites `frames/` and `index.html`. Frames are pasted at native resolution and saved as JPEG q92,
+so the strips stay sharp. The repo is ~24 MB (well under the GitHub Pages 1 GB limit), so everything lives
+on `main` and is served directly by Pages — no jsDelivr / assets branch needed.
