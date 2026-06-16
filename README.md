@@ -12,7 +12,7 @@ Each composite (one per prompt) has:
 - **top row = Base**, **bottom row = VideoReward**
 - four frames sampled at equal time points (start / ⅓ / ⅔ / end)
   - 24-fps clips (LTX-Video, HunyuanVideo, 121 frames) → frames **0 / 40 / 80 / 120**
-  - 8-fps CogVideoX clips (41 frames) → the same time points → frames **0 / 13 / 27 / 40**
+  - CogVideoX clips (81 frames) → the same time points → frames **0 / 27 / 53 / 80**
 - the exact frame index is printed above each column
 
 ## Contents
@@ -23,7 +23,7 @@ Each composite (one per prompt) has:
 | `frames/<key>__dyn_NNN.jpg` | baked composite strips, native resolution, JPEG q92 (`key` = `cog` / `ltx` / `hy`) |
 | `scripts/build_base_vr_frames.py` | generator (ffmpeg frame extraction + Pillow compositing) |
 
-38 prompts total: CogVideoX 14 (seed 5), LTX-Video 18 (seed 3), HunyuanVideo 6 (seed 42).
+38 prompts total: CogVideoX 14 (check_v5 seed 4096), LTX-Video 18 (seed 3), HunyuanVideo 6 (seed 42).
 
 ## Regenerate
 
