@@ -12,11 +12,16 @@ PDIR   = os.path.join(ROOT, "propmt")
 WORK   = "/data_2/xujinyuan/vbench_check/base_vr_dyn_repo"
 OUTDIR = os.path.join(WORK, "frames")
 
-# (key, dir, friendly name)
+# cog was swapped to the check_v5 CogVideoX run (seed 4096; 14 pairs, 448x768, 81 frames).
+# Its videos live outside ROOT and its prompts come from a standalone eval JSON.
+COG_DIR  = "/data_2/xujinyuan/vbench_check/eval_check_v5_cogvideox/base0_vr1_videos/seed_4096"
+COG_JSON = "/data_2/xujinyuan/vbench_check/eval_check_v5_cogvideox/base0_vr1_seed4096.json"
+
+# (key, dir, friendly name). An absolute dir overrides ROOT (os.path.join drops ROOT).
 BACKBONES = [
-    ("cog", "cog_seed5",  "CogVideoX"),
-    ("ltx", "ltx_seed3",  "LTX-Video"),
-    ("hy",  "hy_seed42",  "HunyuanVideo"),
+    ("cog", COG_DIR,     "CogVideoX"),
+    ("ltx", "ltx_seed3", "LTX-Video"),
+    ("hy",  "hy_seed42", "HunyuanVideo"),
 ]
 VARIANTS = [("base", "Base"), ("vr", "VideoReward")]   # suffix, label
 FRACS = [0.0, 1.0/3.0, 2.0/3.0, 1.0]                   # equal time points
@@ -27,6 +32,13 @@ JPEG_Q = 92
 # proportions stay identical while pixels stay native-sharp.
 TW_REF = 200
 G0 = dict(GAPF=4, LBL=150, LBLGAP=8, HDR=30, GAPR=8, EDGE=10, FH=18, FL=19)
+
+def _load_cog_prompts():
+    d = json.load(open(COG_JSON))
+    rec = next(iter(d.values()))          # top-level key is the seed string
+    return {"dyn_%03d" % f["prompt"]: f["video_propmt"].strip() for f in rec["flips"]}
+
+COG_PROMPTS = _load_cog_prompts()
 
 def nframes(path):
     out = subprocess.run(["ffprobe", "-v", "error", "-count_frames",
@@ -59,6 +71,8 @@ def ctext(draw, cx, cy, txt, font, fill=(0, 0, 0)):
     draw.text((cx - (b[2]-b[0])/2, cy - (b[3]-b[1])/2 - b[1]), txt, font=font, fill=fill)
 
 def load_prompt(key, bdir, dyn, pj):
+    if key == "cog" and dyn in COG_PROMPTS:   # cog prompts come from the check_v5 eval JSON
+        return COG_PROMPTS[dyn]
     try:
         return pj[key]["prompts"][dyn].strip()
     except Exception:
