@@ -20,7 +20,7 @@ Each composite (one per prompt) has:
 | path | what |
 |---|---|
 | `index.html` | the demo page (grouped by backbone) |
-| `frames/<key>__dyn_NNN.jpg` | baked composite strips, native resolution, JPEG q92 (`key` = `cog` / `ltx` / `hy`) |
+| `frames/<key>__...jpg` | baked composite strips, native resolution, JPEG q92: `ltx__dyn_NNN`, `hy__dyn_NNN`, and `cog__s<seed>_dyn_NNN` (CogVideoX spans 6 seeds) |
 | `scripts/build_base_vr_frames.py` | generator (ffmpeg frame extraction + Pillow compositing) |
 
 82 strips total: CogVideoX 58 (check_v5; seeds 1/2/3/777/1024/4096), LTX-Video 18 (seed 3), HunyuanVideo 6 (seed 42).
