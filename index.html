@@ -29,84 +29,305 @@
 </style>
 </head>
 <body>
-<h1>Base vs VideoReward &mdash; frame strips (0 / 40 / 80 / 120)</h1>
+<h1>Base vs VideoReward &mdash; frame strips</h1>
 <div class="note">Each composite: <b>top row = Base</b>, <b>bottom row = VideoReward</b>. Four frames are sampled at
 equal time points (start / &frac13; / &frac23; / end). For the 24-fps clips (LTX-Video, HunyuanVideo) these are frames
-<b>0 / 40 / 80 / 120</b>; the 8-fps CogVideoX clips have 41 frames, so the same time points map to frames 0 / 13 / 27 / 40.
+<b>0 / 40 / 80 / 120</b>; the CogVideoX clips have 81 frames, so the same time points map to frames 0 / 27 / 53 / 80,
+and CogVideoX is shown across several downstream seeds (the seed is labeled on each row).
 The exact frame index is printed above each column. Frames are shown at native resolution.</div>
 <div class="toc"><b>Backbones:</b> <a href="#cog">CogVideoX</a> <a href="#ltx">LTX-Video</a> <a href="#hy">HunyuanVideo</a></div>
-<h2 id="cog">CogVideoX <span class="sub">&middot; 14 prompts</span></h2>
+<h2 id="cog">CogVideoX <span class="sub">&middot; 58 clips</span></h2>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_004</div>
-  <div class="prompt">A person walks forward through a snowstorm, stepping with the right foot followed by the left in a steady rhythm while both arms swing forward and back. After three steps, they pause briefly, lift their left hand to brush snow from their right shoulder, then lower the hand and continue walking forward. Their head turns slightly to the right, holds the gaze for a moment, then returns to facing forward. The camera tracks slowly behind the subject, keeping the person centered in the frame.</div>
-  <img class="strip" src="frames/cog__dyn_004.jpg" alt="CogVideoX &middot; dyn_004 frame strip" loading="lazy">
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_007</div>
+  <div class="prompt">The bicycle shifts its weight forward, causing the front wheel to roll slowly to the right while the handlebars tilt downward. The rear tire compresses against the ground as the frame slides slightly along the tree bark. The kickstand lowers and locks into place, stabilizing the bike against the trunk as the camera pans slightly left to follow the motion.</div>
+  <img class="strip" src="frames/cog__s1_dyn_007.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_007 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_008</div>
-  <div class="prompt">A rider pedals a bicycle forward through a flat snowy field. Over five seconds, the right foot pushes the pedal downward and back while the left foot pulls upward in a continuous circular rhythm. Both hands grip the handlebars firmly, fingers wrapped around the grips, keeping the wrists straight and elbows slightly bent. The torso leans forward at a consistent angle, shifting weight slightly left and right with each pedal stroke. The head remains level, gaze fixed straight ahead. The bicycle frame stays upright, and the rear wheel rotates continuously, displacing a thin layer of snow that trails behind the tire. The camera tracks parallel to the bicycle at a steady pace.</div>
-  <img class="strip" src="frames/cog__dyn_008.jpg" alt="CogVideoX &middot; dyn_008 frame strip" loading="lazy">
-</section>
-<section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_016</div>
-  <div class="prompt">A rider on a motorcycle approaches a left-hand curve, gripping the handlebars with both hands. The rider shifts weight to the left, leaning the motorcycle into the turn while steering the front wheel right. The bike holds a steady lean angle for two seconds as it tracks the bend. The rider then gradually shifts weight back to center, straightening the handlebars and lifting the motorcycle upright over the remaining two seconds. The camera pans slightly right to follow the bike&#x27;s exit.</div>
-  <img class="strip" src="frames/cog__dyn_016.jpg" alt="CogVideoX &middot; dyn_016 frame strip" loading="lazy">
-</section>
-<section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_021</div>
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_021</div>
   <div class="prompt">The airplane accelerates forward along the runway, its wheels rolling steadily. At the two-second mark, the nose lifts upward at a steady angle, followed by the main landing gear leaving the ground. The fuselage continues to rise, tilting its left wing slightly downward and right wing upward as it begins a shallow climb. A slow upward camera tilt tracks the ascent, keeping the aircraft centered in the frame until the wheels are fully clear of the runway.</div>
-  <img class="strip" src="frames/cog__dyn_021.jpg" alt="CogVideoX &middot; dyn_021 frame strip" loading="lazy">
+  <img class="strip" src="frames/cog__s1_dyn_021.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_021 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_040</div>
-  <div class="prompt">A bird flies forward over a snow-covered forest canopy, flapping both wings upward and downward three times in a steady rhythm. It tilts its torso slightly to the left, adjusts its tail feathers to steer, then levels its posture and extends both wings into a continuous glide. The bird maintains a consistent altitude above the tree line, drifting steadily toward the right side of the frame before the shot ends.</div>
-  <img class="strip" src="frames/cog__dyn_040.jpg" alt="CogVideoX &middot; dyn_040 frame strip" loading="lazy">
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_022</div>
+  <div class="prompt">An airplane descends diagonally downward toward a flat runway, tilting its nose upward as the front landing gear touches the tarmac first. The main landing gear follows, pressing down and compressing upon contact, then the tires roll forward along the ground with continuous rotation while the wings remain level and flaps stay extended. The fuselage continues moving straight ahead, and the camera pans slightly to the right to track the forward motion.</div>
+  <img class="strip" src="frames/cog__s1_dyn_022.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_022 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_043</div>
-  <div class="prompt">The cat crouches low over a shallow water bowl with its front paws planted firmly on the ground. It lowers its head forward, extending its neck until its muzzle contacts the water surface. The cat then laps the water three times in a steady rhythm, retracting its head slightly upward after each dip before lowering it again. After the third lap, it lifts its head straight up, shakes its muzzle once to clear droplets, and returns to a resting crouch with its front paws aligned forward. The camera holds a static frame throughout.</div>
-  <img class="strip" src="frames/cog__dyn_043.jpg" alt="CogVideoX &middot; dyn_043 frame strip" loading="lazy">
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_026</div>
+  <div class="prompt">A bus begins from a slow roll, its front wheels rotating forward at a steady pace before gradually increasing rotation speed in two distinct phases. The chassis pitches slightly upward as the rear tires grip the ground, pushing the vehicle forward. The suspension compresses briefly under the forward momentum, then stabilizes as the bus gains velocity. The background scenery shifts continuously from left to right, indicating increasing forward displacement. The camera pans slightly to the right to track the bus as it accelerates, maintaining a consistent distance until the motion reaches a steady forward pace.</div>
+  <img class="strip" src="frames/cog__s1_dyn_026.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_026 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_044</div>
-  <div class="prompt">A slow side-tracking shot follows a cat running forward across a flat surface, its front paws lifting and placing alternately while its hind legs push off the ground in a steady rhythm. The tail extends straight back and sways slightly left and right with each stride. The head remains level with ears facing forward and gaze fixed ahead. After three complete strides, the cat lowers its front legs into a brief crouch, immediately pushes off with its hind legs to resume the forward running motion, and continues at a consistent pace until the clip ends.</div>
-  <img class="strip" src="frames/cog__dyn_044.jpg" alt="CogVideoX &middot; dyn_044 frame strip" loading="lazy">
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_030</div>
+  <div class="prompt">A large cargo truck approaches an intersection and initiates a left turn. Its front steering wheels rotate sharply to the left as the vehicle enters the corner, shifting the truck’s weight outward to the right. The chassis follows a smooth arc along the pavement while the rear tires track closely behind the front axle. As the turn completes, the front wheels gradually rotate back to a neutral position, and the truck straightens its path before accelerating forward onto the adjacent road. The camera pans slightly right to track the vehicle.</div>
+  <img class="strip" src="frames/cog__s1_dyn_030.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_030 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_052</div>
-  <div class="prompt">A horse moves forward at a steady pace across open ground, its front legs extending outward and striking the surface while its hind legs push off in a rhythmic cycle. The horse’s head stays level with a slight forward tilt, and its tail swishes left and right with each stride. As it approaches a stationary group of horses in the midground, the running horse angles its torso slightly to the right, lowers its head by a few inches, and gradually reduces its stride length. It takes two final steps into the edge of the group, brings all four hooves to a firm stop, and aligns its body parallel to the nearest horse. The camera tracks smoothly from a low side angle, maintaining a fixed distance as the horse completes the approach and settles into place.</div>
-  <img class="strip" src="frames/cog__dyn_052.jpg" alt="CogVideoX &middot; dyn_052 frame strip" loading="lazy">
-</section>
-<section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_056</div>
-  <div class="prompt">A cow stands at a riverbank with its front hooves planted. It slowly lowers its head and neck downward until its muzzle touches the water surface, then extends its tongue to lap the water three times in quick succession. After a one-second pause, the cow lifts its head upward and back to a standing position, then shakes its muzzle once before settling its ears forward. The camera holds a steady frame, keeping the cow and the waterline in view throughout the five-second sequence.</div>
-  <img class="strip" src="frames/cog__dyn_056.jpg" alt="CogVideoX &middot; dyn_056 frame strip" loading="lazy">
-</section>
-<section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_058</div>
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_058</div>
   <div class="prompt">A cow runs forward across flat ground, its hooves striking the surface in a steady, alternating gallop. The cow’s head bobs slightly with each stride while its ears tilt forward. Its tail swishes left and right as it maintains pace. The cow angles its torso slightly to the right, continuing to run toward a stationary group of several cows positioned in the midground. It keeps a consistent forward motion throughout the sequence, gradually closing the distance to the herd without breaking stride, and the motion concludes with the cow still in mid-stride, now significantly closer to the group.</div>
-  <img class="strip" src="frames/cog__dyn_058.jpg" alt="CogVideoX &middot; dyn_058 frame strip" loading="lazy">
+  <img class="strip" src="frames/cog__s1_dyn_058.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_058 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_059</div>
-  <div class="prompt">The elephant stands facing slightly right, lifts its trunk upward and curls the tip backward over its shoulder, then releases a steady stream of water onto its back. It holds the spray for two seconds, lowers the trunk slightly to redirect the water toward its left flank, pauses briefly, and repeats the upward curl and spray motion once more before slowly lowering the trunk tip to the ground.</div>
-  <img class="strip" src="frames/cog__dyn_059.jpg" alt="CogVideoX &middot; dyn_059 frame strip" loading="lazy">
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_065</div>
+  <div class="prompt">The bear crouches low to the ground, lowering its head and moving its nose left and right twice to follow a scent trail. It raises its right foreleg, pauses with the paw suspended, then steps forward twice while keeping its eyes locked ahead. The camera tracks slowly to the right to follow the bear’s forward movement.</div>
+  <img class="strip" src="frames/cog__s1_dyn_065.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_065 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_061</div>
-  <div class="prompt">The elephant runs forward across open ground, its left and right legs alternating in a rapid sequence. With each stride, the trunk swings downward and forward, then lifts back toward the head. The ears flap outward and backward twice per step cycle. The head bobs downward with each foot impact, then returns to a level position. The gaze remains fixed toward a group of other elephants in the distance. As it closes the gap, the front legs extend further forward, and the shoulders lower slightly, maintaining a steady pace until it reaches the edge of the herd. The camera tracks steadily from a low side angle, keeping the elephant centered in the frame.</div>
-  <img class="strip" src="frames/cog__dyn_061.jpg" alt="CogVideoX &middot; dyn_061 frame strip" loading="lazy">
+  <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_070</div>
+  <div class="prompt">A giraffe walks forward in a steady four-beat stride, lifting the front right leg and placing it down, followed by the front left, rear right, and rear left. Its long neck remains upright with a slight forward tilt, and its head turns slowly to the left, holds for a moment, then returns to face forward. The left ear twitches once, and the tail swishes in a single right-to-left arc. The giraffe takes two more steps forward, maintains a consistent pace, and comes to a brief stop with all four legs planted firmly on the ground.</div>
+  <img class="strip" src="frames/cog__s1_dyn_070.jpg" alt="CogVideoX &middot; seed 1 &middot; dyn_070 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_064</div>
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_014</div>
+  <div class="prompt">The car begins stationary on a flat paved surface. The rear wheels start rotating forward, increasing rotational speed over the first two seconds. The rear suspension compresses slightly and the chassis tilts backward. The tires grip the road, propelling the vehicle forward in a straight line. The front wheels roll smoothly while the rear wheels continue spinning rapidly. The car advances approximately two car lengths, reaching a higher steady speed by the end. The camera pans steadily to the right, tracking the vehicle’s forward motion.</div>
+  <img class="strip" src="frames/cog__s2_dyn_014.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_014 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_016</div>
+  <div class="prompt">A rider on a motorcycle approaches a left-hand curve, gripping the handlebars with both hands. The rider shifts weight to the left, leaning the motorcycle into the turn while steering the front wheel right. The bike holds a steady lean angle for two seconds as it tracks the bend. The rider then gradually shifts weight back to center, straightening the handlebars and lifting the motorcycle upright over the remaining two seconds. The camera pans slightly right to follow the bike&#x27;s exit.</div>
+  <img class="strip" src="frames/cog__s2_dyn_016.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_016 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_026</div>
+  <div class="prompt">A bus begins from a slow roll, its front wheels rotating forward at a steady pace before gradually increasing rotation speed in two distinct phases. The chassis pitches slightly upward as the rear tires grip the ground, pushing the vehicle forward. The suspension compresses briefly under the forward momentum, then stabilizes as the bus gains velocity. The background scenery shifts continuously from left to right, indicating increasing forward displacement. The camera pans slightly to the right to track the bus as it accelerates, maintaining a consistent distance until the motion reaches a steady forward pace.</div>
+  <img class="strip" src="frames/cog__s2_dyn_026.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_026 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_030</div>
+  <div class="prompt">A large cargo truck approaches an intersection and initiates a left turn. Its front steering wheels rotate sharply to the left as the vehicle enters the corner, shifting the truck’s weight outward to the right. The chassis follows a smooth arc along the pavement while the rear tires track closely behind the front axle. As the turn completes, the front wheels gradually rotate back to a neutral position, and the truck straightens its path before accelerating forward onto the adjacent road. The camera pans slightly right to track the vehicle.</div>
+  <img class="strip" src="frames/cog__s2_dyn_030.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_030 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_032</div>
+  <div class="prompt">The truck remains stationary in a dense line of vehicles. The front wheels turn slightly left and right, adjusting position twice. The front bumper dips downward as the suspension compresses, holds briefly, then returns to its original height. The exhaust pipe releases a short puff of vapor that drifts upward and dissipates. The side mirrors remain stationary throughout the sequence.</div>
+  <img class="strip" src="frames/cog__s2_dyn_032.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_032 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_033</div>
+  <div class="prompt">The truck travels forward along a straight road surface, then gradually decelerates as the wheels rotate more slowly. The chassis settles downward slightly while the vehicle continues braking in a straight line, eventually coming to a complete halt with all wheels ceasing rotation. The truck holds the stationary position for the remainder of the shot. The camera remains fixed on the front three-quarter view throughout the sequence.</div>
+  <img class="strip" src="frames/cog__s2_dyn_033.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_033 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_048</div>
+  <div class="prompt">A dog runs forward, lifting its front paws and hind legs in a steady alternating rhythm while swinging its tail left and right twice per stride. The head stays level, ears flapping slightly backward, and the shoulders move forward and back in sync with the leg motion. After two seconds, the dog tilts its head downward, turns its torso slightly left, and adjusts its stride to continue running forward until the five-second mark. The camera pans slowly to the right to follow the movement.</div>
+  <img class="strip" src="frames/cog__s2_dyn_048.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_048 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_049</div>
+  <div class="prompt">The horse stands at the riverbank, bends its front knees, and lowers its head and neck downward toward the water surface. Its muzzle touches the water, opens its lips slightly to lap, and holds the drinking position for a moment. The horse then extends its neck upward in a continuous motion, lifts its muzzle clear of the surface, and straightens its front legs to return to a standing posture. The camera remains fixed on the subject throughout the sequence.</div>
+  <img class="strip" src="frames/cog__s2_dyn_049.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_049 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_058</div>
+  <div class="prompt">A cow runs forward across flat ground, its hooves striking the surface in a steady, alternating gallop. The cow’s head bobs slightly with each stride while its ears tilt forward. Its tail swishes left and right as it maintains pace. The cow angles its torso slightly to the right, continuing to run toward a stationary group of several cows positioned in the midground. It keeps a consistent forward motion throughout the sequence, gradually closing the distance to the herd without breaking stride, and the motion concludes with the cow still in mid-stride, now significantly closer to the group.</div>
+  <img class="strip" src="frames/cog__s2_dyn_058.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_058 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 2 &middot; dyn_064</div>
   <div class="prompt">The bear grips the tree trunk with both front paws, pulling its torso upward while its hind legs push against the bark. It shifts its weight forward, lifting its left front paw to a higher branch, then follows with the right front paw. The bear extends its hind legs to match the height, repositioning its claws into the wood before repeating the upward limb sequence twice more. Its head tilts forward to locate the next branch, and it continues the steady climbing motion until it reaches a mid-level fork. The camera tilts upward slightly to follow the ascent.</div>
-  <img class="strip" src="frames/cog__dyn_064.jpg" alt="CogVideoX &middot; dyn_064 frame strip" loading="lazy">
+  <img class="strip" src="frames/cog__s2_dyn_064.jpg" alt="CogVideoX &middot; seed 2 &middot; dyn_064 frame strip" loading="lazy">
 </section>
 <section class="item">
-  <div class="row-id">CogVideoX &middot; dyn_067</div>
-  <div class="prompt">A zebra runs forward across flat terrain, its front legs extending and pushing off while the hind legs drive backward in a steady gallop rhythm. The head bobs slightly upward and forward with each stride, ears facing ahead, and the tail sways left and right with the momentum. The zebra maintains this pace for three seconds, gradually closing the distance to a small herd visible in the mid-ground. It then shortens its stride, lifts its head higher, steps into the space beside the nearest herd member, and comes to a brief halt with all four hooves planted. The camera tracks steadily from a low side angle to follow the motion.</div>
-  <img class="strip" src="frames/cog__dyn_067.jpg" alt="CogVideoX &middot; dyn_067 frame strip" loading="lazy">
+  <div class="row-id">CogVideoX &middot; seed 3 &middot; dyn_014</div>
+  <div class="prompt">The car begins stationary on a flat paved surface. The rear wheels start rotating forward, increasing rotational speed over the first two seconds. The rear suspension compresses slightly and the chassis tilts backward. The tires grip the road, propelling the vehicle forward in a straight line. The front wheels roll smoothly while the rear wheels continue spinning rapidly. The car advances approximately two car lengths, reaching a higher steady speed by the end. The camera pans steadily to the right, tracking the vehicle’s forward motion.</div>
+  <img class="strip" src="frames/cog__s3_dyn_014.jpg" alt="CogVideoX &middot; seed 3 &middot; dyn_014 frame strip" loading="lazy">
 </section>
-<h2 id="ltx">LTX-Video <span class="sub">&middot; 18 prompts</span></h2>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 3 &middot; dyn_026</div>
+  <div class="prompt">A bus begins from a slow roll, its front wheels rotating forward at a steady pace before gradually increasing rotation speed in two distinct phases. The chassis pitches slightly upward as the rear tires grip the ground, pushing the vehicle forward. The suspension compresses briefly under the forward momentum, then stabilizes as the bus gains velocity. The background scenery shifts continuously from left to right, indicating increasing forward displacement. The camera pans slightly to the right to track the bus as it accelerates, maintaining a consistent distance until the motion reaches a steady forward pace.</div>
+  <img class="strip" src="frames/cog__s3_dyn_026.jpg" alt="CogVideoX &middot; seed 3 &middot; dyn_026 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 3 &middot; dyn_048</div>
+  <div class="prompt">A dog runs forward, lifting its front paws and hind legs in a steady alternating rhythm while swinging its tail left and right twice per stride. The head stays level, ears flapping slightly backward, and the shoulders move forward and back in sync with the leg motion. After two seconds, the dog tilts its head downward, turns its torso slightly left, and adjusts its stride to continue running forward until the five-second mark. The camera pans slowly to the right to follow the movement.</div>
+  <img class="strip" src="frames/cog__s3_dyn_048.jpg" alt="CogVideoX &middot; seed 3 &middot; dyn_048 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 3 &middot; dyn_049</div>
+  <div class="prompt">The horse stands at the riverbank, bends its front knees, and lowers its head and neck downward toward the water surface. Its muzzle touches the water, opens its lips slightly to lap, and holds the drinking position for a moment. The horse then extends its neck upward in a continuous motion, lifts its muzzle clear of the surface, and straightens its front legs to return to a standing posture. The camera remains fixed on the subject throughout the sequence.</div>
+  <img class="strip" src="frames/cog__s3_dyn_049.jpg" alt="CogVideoX &middot; seed 3 &middot; dyn_049 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 3 &middot; dyn_052</div>
+  <div class="prompt">A horse moves forward at a steady pace across open ground, its front legs extending outward and striking the surface while its hind legs push off in a rhythmic cycle. The horse’s head stays level with a slight forward tilt, and its tail swishes left and right with each stride. As it approaches a stationary group of horses in the midground, the running horse angles its torso slightly to the right, lowers its head by a few inches, and gradually reduces its stride length. It takes two final steps into the edge of the group, brings all four hooves to a firm stop, and aligns its body parallel to the nearest horse. The camera tracks smoothly from a low side angle, maintaining a fixed distance as the horse completes the approach and settles into place.</div>
+  <img class="strip" src="frames/cog__s3_dyn_052.jpg" alt="CogVideoX &middot; seed 3 &middot; dyn_052 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 3 &middot; dyn_058</div>
+  <div class="prompt">A cow runs forward across flat ground, its hooves striking the surface in a steady, alternating gallop. The cow’s head bobs slightly with each stride while its ears tilt forward. Its tail swishes left and right as it maintains pace. The cow angles its torso slightly to the right, continuing to run toward a stationary group of several cows positioned in the midground. It keeps a consistent forward motion throughout the sequence, gradually closing the distance to the herd without breaking stride, and the motion concludes with the cow still in mid-stride, now significantly closer to the group.</div>
+  <img class="strip" src="frames/cog__s3_dyn_058.jpg" alt="CogVideoX &middot; seed 3 &middot; dyn_058 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 3 &middot; dyn_070</div>
+  <div class="prompt">A giraffe walks forward in a steady four-beat stride, lifting the front right leg and placing it down, followed by the front left, rear right, and rear left. Its long neck remains upright with a slight forward tilt, and its head turns slowly to the left, holds for a moment, then returns to face forward. The left ear twitches once, and the tail swishes in a single right-to-left arc. The giraffe takes two more steps forward, maintains a consistent pace, and comes to a brief stop with all four legs planted firmly on the ground.</div>
+  <img class="strip" src="frames/cog__s3_dyn_070.jpg" alt="CogVideoX &middot; seed 3 &middot; dyn_070 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_004</div>
+  <div class="prompt">A person walks forward through a snowstorm, stepping with the right foot followed by the left in a steady rhythm while both arms swing forward and back. After three steps, they pause briefly, lift their left hand to brush snow from their right shoulder, then lower the hand and continue walking forward. Their head turns slightly to the right, holds the gaze for a moment, then returns to facing forward. The camera tracks slowly behind the subject, keeping the person centered in the frame.</div>
+  <img class="strip" src="frames/cog__s777_dyn_004.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_016</div>
+  <div class="prompt">A rider on a motorcycle approaches a left-hand curve, gripping the handlebars with both hands. The rider shifts weight to the left, leaning the motorcycle into the turn while steering the front wheel right. The bike holds a steady lean angle for two seconds as it tracks the bend. The rider then gradually shifts weight back to center, straightening the handlebars and lifting the motorcycle upright over the remaining two seconds. The camera pans slightly right to follow the bike&#x27;s exit.</div>
+  <img class="strip" src="frames/cog__s777_dyn_016.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_016 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_023</div>
+  <div class="prompt">The airplane moves forward along a straight runway, its nose wheel and main landing gear tires spinning continuously as it gains forward momentum. Over the first three seconds, the fuselage pitches upward steadily, raising the nose to a fifteen-degree angle while the main wheels lift off the ground. The wings remain level and stable, with only minor high-frequency vibration visible along the leading edges. Engine exhaust flows straight backward from the underwing nacelles. The aircraft maintains the elevated nose posture and continues forward until the five-second mark. A slow tracking pan follows the fuselage from a low side angle.</div>
+  <img class="strip" src="frames/cog__s777_dyn_023.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_023 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_026</div>
+  <div class="prompt">A bus begins from a slow roll, its front wheels rotating forward at a steady pace before gradually increasing rotation speed in two distinct phases. The chassis pitches slightly upward as the rear tires grip the ground, pushing the vehicle forward. The suspension compresses briefly under the forward momentum, then stabilizes as the bus gains velocity. The background scenery shifts continuously from left to right, indicating increasing forward displacement. The camera pans slightly to the right to track the bus as it accelerates, maintaining a consistent distance until the motion reaches a steady forward pace.</div>
+  <img class="strip" src="frames/cog__s777_dyn_026.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_026 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_030</div>
+  <div class="prompt">A large cargo truck approaches an intersection and initiates a left turn. Its front steering wheels rotate sharply to the left as the vehicle enters the corner, shifting the truck’s weight outward to the right. The chassis follows a smooth arc along the pavement while the rear tires track closely behind the front axle. As the turn completes, the front wheels gradually rotate back to a neutral position, and the truck straightens its path before accelerating forward onto the adjacent road. The camera pans slightly right to track the vehicle.</div>
+  <img class="strip" src="frames/cog__s777_dyn_030.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_030 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_049</div>
+  <div class="prompt">The horse stands at the riverbank, bends its front knees, and lowers its head and neck downward toward the water surface. Its muzzle touches the water, opens its lips slightly to lap, and holds the drinking position for a moment. The horse then extends its neck upward in a continuous motion, lifts its muzzle clear of the surface, and straightens its front legs to return to a standing posture. The camera remains fixed on the subject throughout the sequence.</div>
+  <img class="strip" src="frames/cog__s777_dyn_049.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_049 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_052</div>
+  <div class="prompt">A horse moves forward at a steady pace across open ground, its front legs extending outward and striking the surface while its hind legs push off in a rhythmic cycle. The horse’s head stays level with a slight forward tilt, and its tail swishes left and right with each stride. As it approaches a stationary group of horses in the midground, the running horse angles its torso slightly to the right, lowers its head by a few inches, and gradually reduces its stride length. It takes two final steps into the edge of the group, brings all four hooves to a firm stop, and aligns its body parallel to the nearest horse. The camera tracks smoothly from a low side angle, maintaining a fixed distance as the horse completes the approach and settles into place.</div>
+  <img class="strip" src="frames/cog__s777_dyn_052.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_052 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_060</div>
+  <div class="prompt">The elephant walks forward across flat ground. It lifts its left front leg, places it down, then lifts the right front leg and places it down. It steps forward with the left hind leg, followed by the right hind leg, completing one full walking cycle. As it moves, the trunk hangs downward and swings forward and back twice. The head turns slightly to the right, and both ears flap once each. The camera tracks forward at a steady pace to maintain a centered framing of the animal.</div>
+  <img class="strip" src="frames/cog__s777_dyn_060.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_060 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_070</div>
+  <div class="prompt">A giraffe walks forward in a steady four-beat stride, lifting the front right leg and placing it down, followed by the front left, rear right, and rear left. Its long neck remains upright with a slight forward tilt, and its head turns slowly to the left, holds for a moment, then returns to face forward. The left ear twitches once, and the tail swishes in a single right-to-left arc. The giraffe takes two more steps forward, maintains a consistent pace, and comes to a brief stop with all four legs planted firmly on the ground.</div>
+  <img class="strip" src="frames/cog__s777_dyn_070.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_070 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 777 &middot; dyn_071</div>
+  <div class="prompt">A giraffe gallops forward across flat terrain, its long legs moving in a steady rhythm. The neck extends forward, swaying slightly with each stride, while the head bobs downward and lifts in sync with the hoof strikes. As it runs, the giraffe turns its head to the right, fixing its gaze on a group of three other giraffes standing in the distance. It maintains a consistent pace, ears flicking forward, and gradually closes the gap. Over the final two seconds, it reduces its stride length, brings its front legs to a firm plant, and straightens its neck into a standing position beside the herd.</div>
+  <img class="strip" src="frames/cog__s777_dyn_071.jpg" alt="CogVideoX &middot; seed 777 &middot; dyn_071 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_026</div>
+  <div class="prompt">A bus begins from a slow roll, its front wheels rotating forward at a steady pace before gradually increasing rotation speed in two distinct phases. The chassis pitches slightly upward as the rear tires grip the ground, pushing the vehicle forward. The suspension compresses briefly under the forward momentum, then stabilizes as the bus gains velocity. The background scenery shifts continuously from left to right, indicating increasing forward displacement. The camera pans slightly to the right to track the bus as it accelerates, maintaining a consistent distance until the motion reaches a steady forward pace.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_026.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_026 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_029</div>
+  <div class="prompt">The train’s large driving wheels begin rotating along the steel rails at a moderate pace. Over the first two seconds, the wheel rotation increases in frequency, pushing the locomotive’s chassis forward past three evenly spaced track joints. From seconds two to four, the wheels spin faster, displacing a thin layer of gravel dust while the front carriage advances continuously. In the final second, the train sustains a higher forward velocity, the wheels rotating rapidly and the background scenery shifting past at an increased rate. The camera remains fixed at track level, keeping the lower chassis and driving wheels centered as the forward motion progresses.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_029.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_029 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_040</div>
+  <div class="prompt">A bird flies forward over a snow-covered forest canopy, flapping both wings upward and downward three times in a steady rhythm. It tilts its torso slightly to the left, adjusts its tail feathers to steer, then levels its posture and extends both wings into a continuous glide. The bird maintains a consistent altitude above the tree line, drifting steadily toward the right side of the frame before the shot ends.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_040.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_040 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_044</div>
+  <div class="prompt">A slow side-tracking shot follows a cat running forward across a flat surface, its front paws lifting and placing alternately while its hind legs push off the ground in a steady rhythm. The tail extends straight back and sways slightly left and right with each stride. The head remains level with ears facing forward and gaze fixed ahead. After three complete strides, the cat lowers its front legs into a brief crouch, immediately pushes off with its hind legs to resume the forward running motion, and continues at a consistent pace until the clip ends.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_044.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_044 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_051</div>
+  <div class="prompt">The horse stands still, then steps forward with its left front leg, followed by the right hind, right front, and left hind legs to complete one full stride cycle. As it walks, the head lowers slightly and tilts forward with each step, then lifts back to a neutral position. The ears rotate once to the left and once to the right. The tail sways gently from side to side in rhythm with the steps. The horse continues walking forward at a steady pace, maintaining the gait, and ends with all four hooves planted firmly on the ground.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_051.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_051 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_056</div>
+  <div class="prompt">A cow stands at a riverbank with its front hooves planted. It slowly lowers its head and neck downward until its muzzle touches the water surface, then extends its tongue to lap the water three times in quick succession. After a one-second pause, the cow lifts its head upward and back to a standing position, then shakes its muzzle once before settling its ears forward. The camera holds a steady frame, keeping the cow and the waterline in view throughout the five-second sequence.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_056.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_056 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_058</div>
+  <div class="prompt">A cow runs forward across flat ground, its hooves striking the surface in a steady, alternating gallop. The cow’s head bobs slightly with each stride while its ears tilt forward. Its tail swishes left and right as it maintains pace. The cow angles its torso slightly to the right, continuing to run toward a stationary group of several cows positioned in the midground. It keeps a consistent forward motion throughout the sequence, gradually closing the distance to the herd without breaking stride, and the motion concludes with the cow still in mid-stride, now significantly closer to the group.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_058.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_058 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_060</div>
+  <div class="prompt">The elephant walks forward across flat ground. It lifts its left front leg, places it down, then lifts the right front leg and places it down. It steps forward with the left hind leg, followed by the right hind leg, completing one full walking cycle. As it moves, the trunk hangs downward and swings forward and back twice. The head turns slightly to the right, and both ears flap once each. The camera tracks forward at a steady pace to maintain a centered framing of the animal.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_060.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_060 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 1024 &middot; dyn_068</div>
+  <div class="prompt">The zebra lifts its left front leg and places it forward, then follows with the right hind leg, continuing a steady four-beat walking gait. As it moves, it lowers its head slightly, holds the position for one second, then raises its muzzle and rotates both ears forward. The tail swishes once to the right before settling against the hindquarters. The zebra maintains its forward walking rhythm, stepping with the right front leg followed by the left hind leg. The camera pans slowly to the right, tracking the animal’s movement across the frame.</div>
+  <img class="strip" src="frames/cog__s1024_dyn_068.jpg" alt="CogVideoX &middot; seed 1024 &middot; dyn_068 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_004</div>
+  <div class="prompt">A person walks forward through a snowstorm, stepping with the right foot followed by the left in a steady rhythm while both arms swing forward and back. After three steps, they pause briefly, lift their left hand to brush snow from their right shoulder, then lower the hand and continue walking forward. Their head turns slightly to the right, holds the gaze for a moment, then returns to facing forward. The camera tracks slowly behind the subject, keeping the person centered in the frame.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_004.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_008</div>
+  <div class="prompt">A rider pedals a bicycle forward through a flat snowy field. Over five seconds, the right foot pushes the pedal downward and back while the left foot pulls upward in a continuous circular rhythm. Both hands grip the handlebars firmly, fingers wrapped around the grips, keeping the wrists straight and elbows slightly bent. The torso leans forward at a consistent angle, shifting weight slightly left and right with each pedal stroke. The head remains level, gaze fixed straight ahead. The bicycle frame stays upright, and the rear wheel rotates continuously, displacing a thin layer of snow that trails behind the tire. The camera tracks parallel to the bicycle at a steady pace.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_008.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_008 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_016</div>
+  <div class="prompt">A rider on a motorcycle approaches a left-hand curve, gripping the handlebars with both hands. The rider shifts weight to the left, leaning the motorcycle into the turn while steering the front wheel right. The bike holds a steady lean angle for two seconds as it tracks the bend. The rider then gradually shifts weight back to center, straightening the handlebars and lifting the motorcycle upright over the remaining two seconds. The camera pans slightly right to follow the bike&#x27;s exit.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_016.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_016 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_021</div>
+  <div class="prompt">The airplane accelerates forward along the runway, its wheels rolling steadily. At the two-second mark, the nose lifts upward at a steady angle, followed by the main landing gear leaving the ground. The fuselage continues to rise, tilting its left wing slightly downward and right wing upward as it begins a shallow climb. A slow upward camera tilt tracks the ascent, keeping the aircraft centered in the frame until the wheels are fully clear of the runway.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_021.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_021 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_040</div>
+  <div class="prompt">A bird flies forward over a snow-covered forest canopy, flapping both wings upward and downward three times in a steady rhythm. It tilts its torso slightly to the left, adjusts its tail feathers to steer, then levels its posture and extends both wings into a continuous glide. The bird maintains a consistent altitude above the tree line, drifting steadily toward the right side of the frame before the shot ends.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_040.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_040 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_043</div>
+  <div class="prompt">The cat crouches low over a shallow water bowl with its front paws planted firmly on the ground. It lowers its head forward, extending its neck until its muzzle contacts the water surface. The cat then laps the water three times in a steady rhythm, retracting its head slightly upward after each dip before lowering it again. After the third lap, it lifts its head straight up, shakes its muzzle once to clear droplets, and returns to a resting crouch with its front paws aligned forward. The camera holds a static frame throughout.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_043.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_043 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_044</div>
+  <div class="prompt">A slow side-tracking shot follows a cat running forward across a flat surface, its front paws lifting and placing alternately while its hind legs push off the ground in a steady rhythm. The tail extends straight back and sways slightly left and right with each stride. The head remains level with ears facing forward and gaze fixed ahead. After three complete strides, the cat lowers its front legs into a brief crouch, immediately pushes off with its hind legs to resume the forward running motion, and continues at a consistent pace until the clip ends.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_044.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_044 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_052</div>
+  <div class="prompt">A horse moves forward at a steady pace across open ground, its front legs extending outward and striking the surface while its hind legs push off in a rhythmic cycle. The horse’s head stays level with a slight forward tilt, and its tail swishes left and right with each stride. As it approaches a stationary group of horses in the midground, the running horse angles its torso slightly to the right, lowers its head by a few inches, and gradually reduces its stride length. It takes two final steps into the edge of the group, brings all four hooves to a firm stop, and aligns its body parallel to the nearest horse. The camera tracks smoothly from a low side angle, maintaining a fixed distance as the horse completes the approach and settles into place.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_052.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_052 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_056</div>
+  <div class="prompt">A cow stands at a riverbank with its front hooves planted. It slowly lowers its head and neck downward until its muzzle touches the water surface, then extends its tongue to lap the water three times in quick succession. After a one-second pause, the cow lifts its head upward and back to a standing position, then shakes its muzzle once before settling its ears forward. The camera holds a steady frame, keeping the cow and the waterline in view throughout the five-second sequence.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_056.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_056 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_058</div>
+  <div class="prompt">A cow runs forward across flat ground, its hooves striking the surface in a steady, alternating gallop. The cow’s head bobs slightly with each stride while its ears tilt forward. Its tail swishes left and right as it maintains pace. The cow angles its torso slightly to the right, continuing to run toward a stationary group of several cows positioned in the midground. It keeps a consistent forward motion throughout the sequence, gradually closing the distance to the herd without breaking stride, and the motion concludes with the cow still in mid-stride, now significantly closer to the group.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_058.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_058 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_059</div>
+  <div class="prompt">The elephant stands facing slightly right, lifts its trunk upward and curls the tip backward over its shoulder, then releases a steady stream of water onto its back. It holds the spray for two seconds, lowers the trunk slightly to redirect the water toward its left flank, pauses briefly, and repeats the upward curl and spray motion once more before slowly lowering the trunk tip to the ground.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_059.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_059 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_061</div>
+  <div class="prompt">The elephant runs forward across open ground, its left and right legs alternating in a rapid sequence. With each stride, the trunk swings downward and forward, then lifts back toward the head. The ears flap outward and backward twice per step cycle. The head bobs downward with each foot impact, then returns to a level position. The gaze remains fixed toward a group of other elephants in the distance. As it closes the gap, the front legs extend further forward, and the shoulders lower slightly, maintaining a steady pace until it reaches the edge of the herd. The camera tracks steadily from a low side angle, keeping the elephant centered in the frame.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_061.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_061 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_064</div>
+  <div class="prompt">The bear grips the tree trunk with both front paws, pulling its torso upward while its hind legs push against the bark. It shifts its weight forward, lifting its left front paw to a higher branch, then follows with the right front paw. The bear extends its hind legs to match the height, repositioning its claws into the wood before repeating the upward limb sequence twice more. Its head tilts forward to locate the next branch, and it continues the steady climbing motion until it reaches a mid-level fork. The camera tilts upward slightly to follow the ascent.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_064.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_064 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">CogVideoX &middot; seed 4096 &middot; dyn_067</div>
+  <div class="prompt">A zebra runs forward across flat terrain, its front legs extending and pushing off while the hind legs drive backward in a steady gallop rhythm. The head bobs slightly upward and forward with each stride, ears facing ahead, and the tail sways left and right with the momentum. The zebra maintains this pace for three seconds, gradually closing the distance to a small herd visible in the mid-ground. It then shortens its stride, lifts its head higher, steps into the space beside the nearest herd member, and comes to a brief halt with all four hooves planted. The camera tracks steadily from a low side angle to follow the motion.</div>
+  <img class="strip" src="frames/cog__s4096_dyn_067.jpg" alt="CogVideoX &middot; seed 4096 &middot; dyn_067 frame strip" loading="lazy">
+</section>
+<h2 id="ltx">LTX-Video <span class="sub">&middot; 18 clips</span></h2>
 <section class="item">
   <div class="row-id">LTX-Video &middot; dyn_013</div>
   <div class="prompt">The car travels forward on a straight road, its front and rear wheels rotating at a steady pace. Over the first two seconds, the vehicle gradually reduces forward speed, causing the wheel rotation to visibly slow down. The rear brake lights illuminate on the back bumper, and the chassis settles slightly downward as the suspension compresses. The car continues moving forward at a decreasing rate, then decelerates further until the wheels stop rotating completely. The vehicle remains stationary with the brake lights still lit, aligned straight on the road. The camera maintains a fixed side-rear position throughout the sequence.</div>
@@ -197,7 +418,7 @@ The exact frame index is printed above each column. Frames are shown at native r
   <div class="prompt">A giraffe gallops forward across flat terrain, its long legs moving in a steady rhythm. The neck extends forward, swaying slightly with each stride, while the head bobs downward and lifts in sync with the hoof strikes. As it runs, the giraffe turns its head to the right, fixing its gaze on a group of three other giraffes standing in the distance. It maintains a consistent pace, ears flicking forward, and gradually closes the gap. Over the final two seconds, it reduces its stride length, brings its front legs to a firm plant, and straightens its neck into a standing position beside the herd.</div>
   <img class="strip" src="frames/ltx__dyn_071.jpg" alt="LTX-Video &middot; dyn_071 frame strip" loading="lazy">
 </section>
-<h2 id="hy">HunyuanVideo <span class="sub">&middot; 6 prompts</span></h2>
+<h2 id="hy">HunyuanVideo <span class="sub">&middot; 6 clips</span></h2>
 <section class="item">
   <div class="row-id">HunyuanVideo &middot; dyn_008</div>
   <div class="prompt">A rider pedals a bicycle forward through a flat snowy field. Over five seconds, the right foot pushes the pedal downward and back while the left foot pulls upward in a continuous circular rhythm. Both hands grip the handlebars firmly, fingers wrapped around the grips, keeping the wrists straight and elbows slightly bent. The torso leans forward at a consistent angle, shifting weight slightly left and right with each pedal stroke. The head remains level, gaze fixed straight ahead. The bicycle frame stays upright, and the rear wheel rotates continuously, displacing a thin layer of snow that trails behind the tire. The camera tracks parallel to the bicycle at a steady pace.</div>
