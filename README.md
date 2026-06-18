@@ -23,7 +23,7 @@ Each composite (one per prompt) has:
 | `frames/<key>__dyn_NNN.jpg` | baked composite strips, native resolution, JPEG q92 (`key` = `cog` / `ltx` / `hy`) |
 | `scripts/build_base_vr_frames.py` | generator (ffmpeg frame extraction + Pillow compositing) |
 
-38 prompts total: CogVideoX 14 (check_v5 seed 4096), LTX-Video 18 (seed 3), HunyuanVideo 6 (seed 42).
+82 strips total: CogVideoX 58 (check_v5; seeds 1/2/3/777/1024/4096), LTX-Video 18 (seed 3), HunyuanVideo 6 (seed 42).
 
 ## Regenerate
 
