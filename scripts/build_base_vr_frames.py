@@ -6,8 +6,8 @@
 # required of the other variants. In practice this only drops clips from Kling; the
 # curated cog/ltx/hy sets are already all vr-dynamic, so they are unchanged.
 #
-# Per clip one composite (top -> bottom): Base, VideoReward, and -- for Kling only --
-# Image (HPSv3). Four frames are sampled at equal time points (start / 1/3 / 2/3 / end).
+# Per clip one composite (top -> bottom): Base, VideoReward, Image (HPSv3) -- all four
+# backbones. Four frames are sampled at equal time points (start / 1/3 / 2/3 / end).
 # Frames are pasted at native resolution (capped at MAX_TW=480 wide) and saved JPEG q92.
 import json, os, glob, html, shutil, subprocess
 from PIL import Image, ImageDraw, ImageFont
@@ -23,12 +23,15 @@ OUTDIR = os.path.join(WORK, "frames")
 COG_VID_ROOT = VB + "/eval_check_v5_cogvideox/base0_vr1_videos"          # seed_<S>/
 COG_JSON     = VB + "/eval_check_v5_cogvideox/base0_vr1_by_seed.json"
 COG_RES      = VB + "/eval_check_v5_cogvideox/results/seed_%s/ly_video_vr_only/*eval_results.json"
+COG_IMG      = "/data_2/xujinyuan/diff_check/check_v5/cogvideox/video/seed_%s/hk_uni_hspv3_image/%s.mp4"
 
 # LTX-Video (seed 3) and HunyuanVideo (seed 42): the demo dirs hold the curated dyn_NNN
 # pairs; per-clip vr dynamic_degree comes from the full VBench grid keyed dyn_NNN-<seed>.
 LTX_RES, LTX_SEED = VB + "/eval_check_v5_ltx/results/ly_video_vr_only/dyn_full/*eval_results.json", "3"
+LTX_IMG = VB + "/eval_check_v5_ltx/staging_dyn_full/hk_uni_hspv3_image/%s-3.mp4"
 HY_RES,  HY_SEED  = [VB + "/eval_hy/results/ly_video_vr_only/dyn_degree/*eval_results.json",
                      VB + "/eval_hy/results/ly_video_vr_only/dyn_degree_extra/*eval_results.json"], "42"
+HY_IMG = VB + "/eval_hy/staging_dyn/hk_uni_hspv3_image/%s-42.mp4"
 
 # Kling v3 Pro (check_v4 kling_batch): variants are top-level dirs; one mp4 per clip name.
 KLING_VID     = "/data_2/xujinyuan/diff_check/check_v4/kling_batch/videos"
@@ -187,10 +190,13 @@ for S in sorted(cog, key=int):
         vr   = os.path.join(sdir, dyn + "_vr.mp4")
         if not dynm.get(dyn, False) or not os.path.exists(base):
             continue
+        img = COG_IMG % (S, dyn)
+        rows = [("Base", base), ("VideoReward", vr)]
+        if os.path.exists(img):
+            rows.append(("Image (HPSv3)", img))
         tw, th, g = render_dims(base)
         jpg = "cog__s%s_%s.jpg" % (S, dyn)
-        gw, gh, hi = build_strip([("Base", base), ("VideoReward", vr)], tw, th, g,
-                                 os.path.join(OUTDIR, jpg), "cog_%s_%s" % (S, dyn))
+        gw, gh, hi = build_strip(rows, tw, th, g, os.path.join(OUTDIR, jpg), "cog_%s_%s" % (S, dyn))
         cog_items.append(("seed %s &middot; %s" % (S, dyn), pm.get(dyn, ""), jpg))
         print("  cog seed %-4s %s %dx%d frames=%s" % (S, dyn, gw, gh, hi))
 sections.append(("cog", "CogVideoX", cog_items))
@@ -201,9 +207,9 @@ ltx_dyn = vr_dynamic(LTX_RES)
 hy_dyn = {}
 for pat in HY_RES:
     hy_dyn.update(vr_dynamic(pat))
-for key, bdir, friendly, dynm, seed in [
-        ("ltx", "ltx_seed3", "LTX-Video", ltx_dyn, LTX_SEED),
-        ("hy",  "hy_seed42", "HunyuanVideo", hy_dyn, HY_SEED)]:
+for key, bdir, friendly, dynm, seed, imgf in [
+        ("ltx", "ltx_seed3", "LTX-Video", ltx_dyn, LTX_SEED, LTX_IMG),
+        ("hy",  "hy_seed42", "HunyuanVideo", hy_dyn, HY_SEED, HY_IMG)]:
     items = []
     for b in sorted(glob.glob(os.path.join(ROOT, bdir, "dyn_*_base.mp4"))):
         dyn = os.path.basename(b)[:-len("_base.mp4")]
@@ -211,10 +217,13 @@ for key, bdir, friendly, dynm, seed in [
             continue
         base = os.path.join(ROOT, bdir, dyn + "_base.mp4")
         vr   = os.path.join(ROOT, bdir, dyn + "_vr.mp4")
+        img  = imgf % dyn
+        rows = [("Base", base), ("VideoReward", vr)]
+        if os.path.exists(img):
+            rows.append(("Image (HPSv3)", img))
         tw, th, g = render_dims(base)
         jpg = "%s__%s.jpg" % (key, dyn)
-        gw, gh, hi = build_strip([("Base", base), ("VideoReward", vr)], tw, th, g,
-                                 os.path.join(OUTDIR, jpg), "%s_%s" % (key, dyn))
+        gw, gh, hi = build_strip(rows, tw, th, g, os.path.join(OUTDIR, jpg), "%s_%s" % (key, dyn))
         items.append((dyn, load_prompt(key, bdir, dyn, pj), jpg))
         print("  %-12s %s %dx%d frames=%s" % (bdir, dyn, gw, gh, hi))
     sections.append((key, friendly, items))
@@ -253,9 +262,9 @@ HEAD = """<!doctype html>
 </head>
 <body>
 <h1>Base vs VideoReward &mdash; frame strips</h1>
-<div class="note">Each composite stacks the same prompt rendered by <b>Base</b> (top) and <b>VideoReward</b>;
-the <b>Kling v3 Pro</b> section adds a third row, <b>Image (HPSv3)</b> (the image-reward variant). Only clips
-whose <b>VideoReward</b> render is actually dynamic (VBench <code>dynamic_degree = 1</code>) are shown. Four
+<div class="note">Each composite stacks the same prompt rendered by <b>Base</b> (top), <b>VideoReward</b>, and
+<b>Image (HPSv3)</b> (the image-reward variant). Only clips whose <b>VideoReward</b> render is actually
+dynamic (VBench <code>dynamic_degree = 1</code>) are shown. Four
 frames are sampled at equal time points (start / &frac13; / &frac23; / end): for the 121-frame clips
 (LTX-Video, HunyuanVideo, Kling v3 Pro) these are frames <b>0 / 40 / 80 / 120</b>; the CogVideoX clips have
 81 frames, so the same points map to frames 0 / 27 / 53 / 80, shown across several downstream seeds (the seed
