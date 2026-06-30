@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Base vs VideoReward — frame strips</title>
+<title>Base vs VideoReward &mdash; frame strips</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
   :root { color-scheme: light dark; }
@@ -30,12 +30,276 @@
 </head>
 <body>
 <h1>Base vs VideoReward &mdash; frame strips</h1>
-<div class="note">Each composite: <b>top row = Base</b>, <b>bottom row = VideoReward</b>. Four frames are sampled at
-equal time points (start / &frac13; / &frac23; / end). For the 24-fps clips (LTX-Video, HunyuanVideo) these are frames
-<b>0 / 40 / 80 / 120</b>; the CogVideoX clips have 81 frames, so the same time points map to frames 0 / 27 / 53 / 80,
-and CogVideoX is shown across several downstream seeds (the seed is labeled on each row).
-The exact frame index is printed above each column. Frames are shown at native resolution.</div>
-<div class="toc"><b>Backbones:</b> <a href="#cog">CogVideoX</a> <a href="#ltx">LTX-Video</a> <a href="#hy">HunyuanVideo</a></div>
+<div class="note">Each composite stacks the same prompt rendered by <b>Base</b> (top) and <b>VideoReward</b>;
+the <b>Kling v3 Pro</b> section adds a third row, <b>Image (HPSv3)</b> (the image-reward variant). Only clips
+whose <b>VideoReward</b> render is actually dynamic (VBench <code>dynamic_degree = 1</code>) are shown. Four
+frames are sampled at equal time points (start / &frac13; / &frac23; / end): for the 121-frame clips
+(LTX-Video, HunyuanVideo, Kling v3 Pro) these are frames <b>0 / 40 / 80 / 120</b>; the CogVideoX clips have
+81 frames, so the same points map to frames 0 / 27 / 53 / 80, shown across several downstream seeds (the seed
+is labeled on each row). The exact frame index is printed above each column. Frames are shown at native
+resolution (capped at 480&thinsp;px wide).</div>
+<div class="toc"><b>Backbones:</b> <a href="#kling">Kling v3 Pro</a> <a href="#cog">CogVideoX</a> <a href="#ltx">LTX-Video</a> <a href="#hy">HunyuanVideo</a></div>
+<h2 id="kling">Kling v3 Pro <span class="sub">&middot; 52 clips</span></h2>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 001 row0001</div>
+  <div class="prompt">A colossal eldritch deity rises vertically from the dark ocean surface. Multiple thick tentacles extend upward from the water, curling outward as they clear the surface. The torso lifts steadily through the waves, pushing water aside. The head turns slowly to the left, pauses briefly, then faces forward. Waves churn around the lower body while thick fog drifts horizontally across the scene. The camera tilts up slightly to follow the ascent.</div>
+  <img class="strip" src="frames/kling__batch33_sample_001_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 001 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 001 row0003</div>
+  <div class="prompt">A woman stands beside a hot-rod coupe decorated with flame patterns. She turns her head to the left, then turns it back to face forward. She raises her right hand to touch her collar, holds the position briefly, and lowers her hand to rest at her side. She shifts her weight from her left foot to her right foot while tilting her torso slightly forward. The camera slowly pushes forward toward her upper body.</div>
+  <img class="strip" src="frames/kling__batch33_sample_001_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 001 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 001 row0004</div>
+  <div class="prompt">A woman in armor and flowing garments stands in a glowing environment. She turns her head to the left, pauses for a second, then turns back to face forward. Her right hand lifts to shoulder level, extends her fingers, then retracts the hand to her side. Her chest rises and falls rhythmically, causing the fabric of her robes to ripple. Small light particles drift upward around her. The camera moves forward slightly.</div>
+  <img class="strip" src="frames/kling__batch33_sample_001_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 001 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 002 row0000</div>
+  <div class="prompt">A pregnant woman with long red hair stands in a sunlit stone chamber with ornate gothic windows. She turns her head slowly to the left, pauses for two seconds, then turns back to face forward. Her hair sways left and right three times. Her gown shifts slightly at the waist. Her chest rises and falls twice as she breathes.</div>
+  <img class="strip" src="frames/kling__batch33_sample_002_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 002 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 002 row0002</div>
+  <div class="prompt">An astronaut stands on a vast, desolate landscape while cosmic dust particles drift through the air. The astronaut turns their head slowly to the left, pauses, then turns to the right. They raise their right gloved hand to face level, touch the helmet visor once, and lower the hand back to their side. The camera performs a subtle steady zoom in toward the astronaut.</div>
+  <img class="strip" src="frames/kling__batch33_sample_002_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 002 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 002 row0003</div>
+  <div class="prompt">A woman in mechanical armor stands in a cathedral interior. She turns her head to the left, pauses for one second, then turns back to face forward. She blinks her eyes once. Her shoulders rise and fall slightly. Her hair shifts to the right as her head turns. The camera slowly pushes forward.</div>
+  <img class="strip" src="frames/kling__batch33_sample_002_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 002 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 003 row0000</div>
+  <div class="prompt">A soldier in armor stands atop a pile of skulls. The soldier turns their head to the left, pauses for one second, then turns to face forward. They shift their weight onto the left leg and raise their right hand to rest against the chest armor. The camera slowly pushes in toward the soldier.</div>
+  <img class="strip" src="frames/kling__batch33_sample_003_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 003 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 003 row0002</div>
+  <div class="prompt">A figure with glowing aqua neon dreadlocks floats in a dark void. She turns her head to the right once, pauses, then returns to face forward. She lifts her right arm to shoulder level, opens her palm, holds the gesture for two seconds, then lowers her arm to her side. Her dreadlocks and robes drift slowly upward and outward around her torso. The camera pans slightly to the right to follow her head movement.</div>
+  <img class="strip" src="frames/kling__batch33_sample_003_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 003 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 004 row0000</div>
+  <div class="prompt">A fae teenage girl with long red hair featuring green highlights stands facing forward. She turns her head slightly to the left, pauses for one second, then turns back to the center. Her hair sways gently to the right as her head moves. She blinks once and lowers her gaze downward, holding the position for two seconds before looking forward again. The camera remains static.</div>
+  <img class="strip" src="frames/kling__batch33_sample_004_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 004 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 004 row0001</div>
+  <div class="prompt">The vampire tilts the head to the left, causing the hair to shift across the face. The shoulders shift slightly, moving the clothing fabric. The right hand raises to touch the collar, pauses, then lowers. The camera slowly pushes in for a close-up.</div>
+  <img class="strip" src="frames/kling__batch33_sample_004_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 004 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 004 row0002</div>
+  <div class="prompt">A woman with South Asian features in fantasy attire faces the camera. Strands of hair move across her face. She turns her head slightly to the right, pauses, then returns to center. She blinks once, lifts her right hand to tuck hair behind her ear, and lowers her hand to her side. The camera slowly zooms in on her face and upper torso during the sequence.</div>
+  <img class="strip" src="frames/kling__batch33_sample_004_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 004 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 004 row0004</div>
+  <div class="prompt">A chalk-white head with long tentacles emerging from its neck drifts in a cavern. The head turns one-quarter turn to the left, pauses for one second, then returns to the center. The tentacles undulate downward twice and then extend outward. The glowing red eyes shift gaze from left to right. The head and neck drift forward as the tentacles move left and right once.</div>
+  <img class="strip" src="frames/kling__batch33_sample_004_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 004 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 005 row0000</div>
+  <div class="prompt">A gnome wearing autumn attire stands in a field of grass, holding a pumpkin against the torso with both hands and a maple leaf in the left hand. The gnome raises the left hand to shoulder level, rotates the wrist to turn the maple leaf once, then lowers the hand back to the side. The gnome tilts the head downward to look at the pumpkin, holds the gaze for two seconds, then lifts the head and turns the face to the right. Grass blades in the background sway left and right. The camera maintains a low-angle perspective.</div>
+  <img class="strip" src="frames/kling__batch33_sample_005_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 005 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 005 row0001</div>
+  <div class="prompt">A cyborg girl with long black and red hair stands in a dark space. She raises both hands to shoulder height, fingers extending and flexing in the air three times. She tilts her head to the left, gaze fixed on floating data fragments, then turns back to the center. Her hair sways from side to side. She lowers her hands to her waist and holds the position.</div>
+  <img class="strip" src="frames/kling__batch33_sample_005_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 005 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 005 row0002</div>
+  <div class="prompt">A young man with silver hair and a mask wearing cyberpunk techwear stands in an urban setting. He turns his head to the left, pauses briefly, then turns back to face forward. He raises his left hand to touch the side of his mask, holds the position for a moment, then lowers the hand to his side. His silver hair and clothing sway slightly to the right due to a breeze throughout the sequence. The camera pans slowly to the right to follow his head movement.</div>
+  <img class="strip" src="frames/kling__batch33_sample_005_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 005 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 005 row0004</div>
+  <div class="prompt">A young girl stands in a rainy night setting. She turns her head to the left, pauses briefly, then turns back to face forward. She lifts her right hand to brush her hair away from her forehead, then lowers her arm to her side. She shifts her weight from her left foot to her right foot once while rain falls around her and her hair moves in the wind.</div>
+  <img class="strip" src="frames/kling__batch33_sample_005_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 005 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 006 row0000</div>
+  <div class="prompt">A girl in a raincoat holds a revolver with both hands at waist level. She shifts her weight to her left leg, turns her head to the right once, then lowers her gaze to the revolver barrel and holds for a moment before lifting her gaze to look forward. Rain droplets slide down the fabric of her coat as the camera slowly pushes in.</div>
+  <img class="strip" src="frames/kling__batch33_sample_006_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 006 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 006 row0001</div>
+  <div class="prompt">A wanderer in scavenged post-apocalyptic armor stands among the ruins of a retro-futuristic city. The subject turns their head to the left, pauses, then turns to the right. They shift their weight from their right leg to their left leg and step slightly forward with their right foot. The wanderer lifts their right gloved hand to adjust the strap across their chest armor, holds the position for a moment, then retracts the hand back to their side.</div>
+  <img class="strip" src="frames/kling__batch33_sample_006_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 006 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 006 row0002</div>
+  <div class="prompt">A female gnome engineer with a pixie undercut stands on a wooden ship deck. She raises her right arm, extending the metal gauntlet forward to chest level. Her fingers flex and close into a fist twice, then open. Blue light pulses on the metal surface with each flex. She turns her head slightly to the left, pauses, and returns to face forward, her hair shifting slightly during the movement.</div>
+  <img class="strip" src="frames/kling__batch33_sample_006_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 006 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 006 row0004</div>
+  <div class="prompt">A person with long hair and leather clothing stands in a dark environment with decorative wall patterns. The subject turns their head to the left, allowing the long hair to swing across the shoulder, then rotates back to face forward. They lift their right hand to touch the collar of the leather clothing and lower the hand to their side.</div>
+  <img class="strip" src="frames/kling__batch33_sample_006_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 006 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 007 row0000</div>
+  <div class="prompt">A rugged tribal warrior stands before a modern city skyline at night, turns their head to the right, then returns their gaze forward. The warrior raises their right hand to shoulder level, opens the fingers, then closes them into a fist while shifting weight from the left foot to the right foot. The camera moves slowly forward toward the subject.</div>
+  <img class="strip" src="frames/kling__batch33_sample_007_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 007 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 007 row0001</div>
+  <div class="prompt">A female angel with a red and black fade undercut stands in a forest wearing ornamental patterns. She turns her head to the left, pauses briefly, then turns back to face forward. Her hair sways slightly. She lifts her right hand to shoulder level, extends her fingers, holds for a moment, then lowers her arm.</div>
+  <img class="strip" src="frames/kling__batch33_sample_007_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 007 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 007 row0002</div>
+  <div class="prompt">A female demoness with intricate horns and ornate garments turns her head to the left, pauses briefly, then turns her head back to face forward. She raises her right hand to shoulder level, opens her fingers, and lowers the hand to her side. Her hair and fabric shift slightly with her motion, and small particles float through the air around her.</div>
+  <img class="strip" src="frames/kling__batch33_sample_007_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 007 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 007 row0003</div>
+  <div class="prompt">A figure in underwear walks forward through a ruined landscape, stepping with the left foot then the right, extending the right arm upward to point ahead while turning the head to the left. Behind the figure, a group of figures moves forward in a line. The subject lowers the right arm to the side, then raises it again to gesture forward twice. The camera slowly moves backward away from the scene.</div>
+  <img class="strip" src="frames/kling__batch33_sample_007_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 007 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 007 row0004</div>
+  <div class="prompt">Hera stands facing forward wearing a tunic, surrounded by foliage, turning her head slightly to the left and then returning to center. Her eyebrows lower toward her nose twice, and her glowing eyes narrow. She raises her right hand to shoulder height, extends her fingers forward, then lowers her arm back to her side. She holds her gaze steady as the movement concludes.</div>
+  <img class="strip" src="frames/kling__batch33_sample_007_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 007 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 008 row0000</div>
+  <div class="prompt">A teenage girl wearing a red fur dress stands facing forward, turns her head slightly to the left, then back to center, while strands of hair and the fur of the dress move in a light breeze. She blinks once and shifts her shoulders slightly, as the camera slowly pushes in toward her face.</div>
+  <img class="strip" src="frames/kling__batch33_sample_008_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 008 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 008 row0002</div>
+  <div class="prompt">Salma Hayek in ornate gothic power armor stands in a cathedral interior. She turns her head to the left, pauses briefly, then lifts her right hand to touch the shoulder pauldron once. She lowers the hand to her side, tilts her head forward, and shifts her gaze downward. A camera zooms in slowly while embers drift across the frame.</div>
+  <img class="strip" src="frames/kling__batch33_sample_008_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 008 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 008 row0003</div>
+  <div class="prompt">A slender red-headed male musician wearing ornate high fantasy garments stands in a setting. His hair and clothes sway. He turns his head to the left, then raises his right hand to shoulder level, opens his fingers, and closes them into a grip twice. He shifts his weight from his left foot to his right foot and lowers his hand to his side.</div>
+  <img class="strip" src="frames/kling__batch33_sample_008_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 008 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 008 row0004</div>
+  <div class="prompt">A rider sits on a horse in a dim environment. The camera slowly pushes forward. The rider turns his head to the left, pauses, then turns back to center and tilts his chin down slightly. His glowing eyes flicker twice while he looks forward. His right hand adjusts his grip on the reins, pulling them upward once, then resting. The rider&#x27;s shoulders shift slightly with breathing.</div>
+  <img class="strip" src="frames/kling__batch33_sample_008_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 008 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 009 row0000</div>
+  <div class="prompt">Ace Ventura in an astronaut suit turns his head to the left, pauses briefly, then turns to the right. He raises his right gloved hand to shoulder level, opens the fingers, and waves the hand left and right three times. He lowers the hand to the waist, straightens the torso, and faces forward. The camera remains fixed on the subject in a dark space environment.</div>
+  <img class="strip" src="frames/kling__batch33_sample_009_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 009 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 009 row0001</div>
+  <div class="prompt">A white-haired figure with half-Asian features and blue eyes stands on a glowing sci-fi platform wearing bio-mechanical armor and white dove wings. The wings lift upward and flutter downward twice. The head turns to the left, pauses briefly, and returns to face forward. The right hand extends from the armored sleeve, fingers opening once before closing into a loose fist. The camera moves forward to a close-up of the torso as the wings settle against the back.</div>
+  <img class="strip" src="frames/kling__batch33_sample_009_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 009 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 009 row0002</div>
+  <div class="prompt">An elderly female wearing layered Jedi robes stands in a high-tech meditation chamber. She slowly raises her right hand to shoulder level, opens her palm outward, pauses, turns her head slightly to the left, and closes her eyes while the camera remains steady.</div>
+  <img class="strip" src="frames/kling__batch33_sample_009_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 009 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 009 row0003</div>
+  <div class="prompt">A group of people walks forward along a city street with arms swinging at their sides. They turn their heads to the left and right, then raise their hands to shoulder level and gesture outward twice. The camera pans slowly from left to right.</div>
+  <img class="strip" src="frames/kling__batch33_sample_009_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 009 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 009 row0004</div>
+  <div class="prompt">Rick raises his right hand to adjust his glasses, holds the position for one second, then lowers his arm to his side. Morty shifts his weight to his left foot, turns his head to the right to look at the entity, pauses briefly, then turns back to face forward. The shapeshifting entity extends a limb outward and retracts it. Red dust drifts horizontally across the red Martian surface from left to right in the foreground. The camera pushes forward toward the subjects.</div>
+  <img class="strip" src="frames/kling__batch33_sample_009_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 009 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 010 row0000</div>
+  <div class="prompt">A male cat in a half-body view turns its head to the left, pauses briefly, then turns back to face forward. Its left ear twitches forward and back, followed by the right ear twitching forward once. The cat blinks slowly, then shifts its weight slightly, causing the fur on its chest to sway upward and downward once.</div>
+  <img class="strip" src="frames/kling__batch33_sample_010_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 010 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 010 row0002</div>
+  <div class="prompt">A black dachshund stands centered against a bright background of cold blue and grey hues. The dog turns its head slightly to the left, holds for one second, then returns to the center. The ears twitch once. The chest rises and falls. The camera pushes in slowly.</div>
+  <img class="strip" src="frames/kling__batch33_sample_010_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 010 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 010 row0003</div>
+  <div class="prompt">A demon clad in detailed gladiator armor stands centered. The subject turns the head to the left, pauses briefly, then rotates the head back to center. The fiery halo above the crown flickers upward twice. The subject lowers the gaze to the chest, then lifts the head and shifts the shoulders slightly. Smoke drifts horizontally past the shoulders while embers rise. The camera performs a slow, steady push-in toward the face.</div>
+  <img class="strip" src="frames/kling__batch33_sample_010_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 010 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 010 row0004</div>
+  <div class="prompt">A woman with long hair wearing translucent pink and white robes floats in a dark space filled with small floating particles. She rotates her torso ninety degrees to the right, extends her right arm forward at shoulder height, and lowers her gaze to her hand. Her hair and fabric drift upward and outward around her body during the motion. She holds the pose for two seconds, then retracts her arm back to her side while turning her head forward.</div>
+  <img class="strip" src="frames/kling__batch33_sample_010_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 010 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 011 row0000</div>
+  <div class="prompt">A woman with dark skin, green eyes, and black dreadlocks stands in a desert palace setting. She rotates her torso, shifting her hips to the right once, then to the left once. She raises her arms to shoulder height with palms facing down, then lowers them back to her sides. She turns her head to the right, pauses briefly, then returns to the center. Her hair and jewelry shift with the torso rotation. She ends standing straight facing forward.</div>
+  <img class="strip" src="frames/kling__batch33_sample_011_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 011 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 011 row0001</div>
+  <div class="prompt">A man wearing a traditional kimono and a crown of thorns turns his head to the right, lowers his gaze for a moment, then turns his head back to face forward. His hair and the fabric of the kimono ripple with the head movement. Light particles drift through the air around him. The camera remains fixed on the subject.</div>
+  <img class="strip" src="frames/kling__batch33_sample_011_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 011 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 011 row0002</div>
+  <div class="prompt">A woman in a low angle portrait shot tilts her head upward, blinks her eyes twice, turns her head to the left, pauses briefly, then turns her head back to face forward while her hair sways gently in the breeze.</div>
+  <img class="strip" src="frames/kling__batch33_sample_011_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 011 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 011 row0004</div>
+  <div class="prompt">A young woman with black twin pigtails and a clock-patterned eye turns her head slightly to the left, pauses, and returns to face forward. Her gaze shifts downward briefly before lifting to look straight ahead. Her twin pigtails sway gently left and right, and the fabric ruffles on her attire flutter in a soft breeze. The camera remains static.</div>
+  <img class="strip" src="frames/kling__batch33_sample_011_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 011 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 012 row0000</div>
+  <div class="prompt">A dark silhouette of a woman stands against a horizon. She turns her head to the left, pauses briefly, then turns back to face forward. She shifts her weight from her left leg to her right leg, causing her flowing garments to move slightly. She raises her right hand to shoulder level, pauses, then lowers it to her side.</div>
+  <img class="strip" src="frames/kling__batch33_sample_012_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 012 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 012 row0001</div>
+  <div class="prompt">A woman stands in a forest filled with greenery, wearing poison ivy and glowing elements on her head and shoulders. She turns her head to the left, holds the position for one second, then turns back to face forward. She raises her right hand, extends her fingers, and touches the ivy leaves on her left shoulder. She holds the hand position for two seconds before lowering her arm. Her hair moves slightly during the movement. She looks straight ahead for the remainder of the shot. The camera remains static.</div>
+  <img class="strip" src="frames/kling__batch33_sample_012_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 012 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 012 row0002</div>
+  <div class="prompt">A surfer crouches on a surfboard in the ocean near structures, bending the knees and lowering the torso. The surfer pushes off the board, extending the legs upward and raising the arms outward for balance. The surfer leaps over a shark swimming beneath the surface while maintaining a straight torso. The surfer lands on the board, bending the knees to stabilize the posture. The camera tilts upward slightly to follow the motion.</div>
+  <img class="strip" src="frames/kling__batch33_sample_012_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 012 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 012 row0003</div>
+  <div class="prompt">A hybrid creature with an eagle-like head and scaled body perches on a natural surface. Its torso expands and contracts rhythmically with breathing. The head turns slowly to the left, pauses briefly, then rotates back to face forward. The eyelids blink twice during the turn. The wings flex slightly at the shoulders and settle flat against the body. The camera slowly zooms in.</div>
+  <img class="strip" src="frames/kling__batch33_sample_012_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 012 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 012 row0004</div>
+  <div class="prompt">The creatures stand in the scene, their torsos expanding and contracting rhythmically twice. Their heads turn slowly to the left, pause briefly, then rotate back to face forward. One limb lifts slightly upward and lowers back to the side. The camera moves forward slowly.</div>
+  <img class="strip" src="frames/kling__batch33_sample_012_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 012 row0004 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 013 row0000</div>
+  <div class="prompt">A young blonde girl with a pixie haircut wearing a plain tank top stands facing forward. She turns her head slightly to the right, pauses briefly, and turns back to the center. Her hair sways gently left and right continuously. She shifts her weight slightly from her left foot to her right foot. She blinks once. Her shoulders remain relaxed. The camera remains fixed.</div>
+  <img class="strip" src="frames/kling__batch33_sample_013_row0000.jpg" alt="Kling v3 Pro &middot; batch33 sample 013 row0000 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 013 row0001</div>
+  <div class="prompt">A young woman stands facing forward in a dark environment with flickering neon lights. She tilts her head slightly to the right and pauses before returning to center. She blinks once, shifts her gaze downward, then lifts her eyes to look forward. Her shoulders rise and fall with steady breathing. The camera pushes in toward her face.</div>
+  <img class="strip" src="frames/kling__batch33_sample_013_row0001.jpg" alt="Kling v3 Pro &middot; batch33 sample 013 row0001 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 013 row0002</div>
+  <div class="prompt">A muscular titan humanoid stands facing forward against a background with ornate architectural details. The titan slowly rotates its head to the left, pauses for two seconds, then rotates back to face forward. The eyes emit a steady continuous glow. Wisps of steam rise from the shoulders and chest throughout the sequence. Small glowing embers drift upward across the frame. The camera remains fixed on the subject.</div>
+  <img class="strip" src="frames/kling__batch33_sample_013_row0002.jpg" alt="Kling v3 Pro &middot; batch33 sample 013 row0002 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 013 row0003</div>
+  <div class="prompt">Zangief stands in a medium profile view against a sunny urban background with street art. His hair moves gently from left to right in the wind. He blinks his eyes once. He turns his head slightly to the right, pauses, then returns to the profile position. He inhales, raising his chest and shoulders slightly, then exhales and lowers them. He shifts his weight from his left foot to his right foot.</div>
+  <img class="strip" src="frames/kling__batch33_sample_013_row0003.jpg" alt="Kling v3 Pro &middot; batch33 sample 013 row0003 frame strip" loading="lazy">
+</section>
+<section class="item">
+  <div class="row-id">Kling v3 Pro &middot; batch33 sample 013 row0004</div>
+  <div class="prompt">A hybrid creature with a dog-like head and a body covered in yellow fuzz stands in an environment. The creature turns its head to the left, pauses for one second, then turns it to the right. The yellow fuzz on the shoulders ripples inward and outward twice. Small floating particles drift slowly upward in the background. The creature blinks its eyes once.</div>
+  <img class="strip" src="frames/kling__batch33_sample_013_row0004.jpg" alt="Kling v3 Pro &middot; batch33 sample 013 row0004 frame strip" loading="lazy">
+</section>
 <h2 id="cog">CogVideoX <span class="sub">&middot; 58 clips</span></h2>
 <section class="item">
   <div class="row-id">CogVideoX &middot; seed 1 &middot; dyn_007</div>
